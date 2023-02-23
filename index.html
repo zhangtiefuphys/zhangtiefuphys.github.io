@@ -1,2 +1,61 @@
-<p> Hello! </p>
-<p> This is my homepage! </p>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>个人主页</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>个人主页</h1>
+		<nav>
+			<ul>
+				<li><a href="#about">关于我</a></li>
+				<li><a href="#education">教育经历</a></li>
+				<li><a href="#experience">工作经历</a></li>
+				<li><a href="#skills">技能</a></li>
+				<li><a href="#contact">联系我</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section id="about">
+			<h2>关于我</h2>
+			<p>在这里写一段简短的介绍，介绍你自己的背景、兴趣爱好、特长等等。</p>
+		</section>
+		<section id="education">
+			<h2>教育经历</h2>
+			<ul>
+				<li>XX大学 本科 专业：XXX 学位：XXX</li>
+				<li>XX大学 硕士 专业：XXX 学位：XXX</li>
+			</ul>
+		</section>
+		<section id="experience">
+			<h2>工作经历</h2>
+			<ul>
+				<li>公司名称1 职位1 任职时间1</li>
+				<li>公司名称2 职位2 任职时间2</li>
+			</ul>
+		</section>
+		<section id="skills">
+			<h2>技能</h2>
+			<ul>
+				<li>技能1</li>
+				<li>技能2</li>
+				<li>技能3</li>
+			</ul>
+		</section>
+		<section id="contact">
+			<h2>联系我</h2>
+			<p>在这里写下你的联系方式，比如邮箱、电话、社交媒体等。</p>
+		</section>
+	</main>
+	<footer>
+		<p>Copyright © 
+			<script>
+				document.write(new Date().getFullYear())
+			</script> 个人主页</p>
+	</footer>
+</body>
+</html>
