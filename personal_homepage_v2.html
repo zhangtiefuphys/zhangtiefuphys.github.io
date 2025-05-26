@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张铁夫 | Tie-Fu Zhang - 理论物理学者</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #2a5699;
+            --accent-color: #4a90e2;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: var(--gradient);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .profile-info h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .profile-info .title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
+        }
+        
+        <!--
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        -->
+        
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            object-fit: cover; /* 自动裁剪，保持比例 */
+            object-position: center; /* 居中对齐，保留主要内容（如头部） */
+            border-radius: 50%; /* 裁剪为圆形 */
+            display: block; /* 避免外边距问题 */
+        }
+        
+        .profile-photo:hover {
+            transform: scale(1.05);
+            border-color: rgba(255,255,255,0.6);
+        }
+        
+        /* Language Toggle */
+        .lang-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .lang-toggle:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Navigation */
+        .nav {
+            background: var(--bg-white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-item a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-item a:hover {
+            color: var(--primary-color);
+            background: var(--bg-light);
+            transform: translateY(-2px);
+        }
+        
+        /* Main Content */
+        .main {
+            padding: 3rem 0;
+        }
+        
+        .section {
+            background: var(--bg-white);
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .section-header {
+            background: var(--gradient);
+            color: white;
+            padding: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-color), transparent);
+        }
+        
+        .section-content {
+            padding: 2rem;
+        }
+        
+        .research-interests {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .research-item {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+        
+        .research-item:hover {
+            transform: translateX(10px);
+            background: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .research-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .education-item, .experience-item {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .education-item:hover, .experience-item:hover {
+            transform: translateX(10px);
+            background: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .item-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .item-date {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        .item-subtitle {
+            color: var(--secondary-color);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        .publications {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .publication-item {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+        
+        .publication-item:hover {
+            transform: translateY(-3px);
+            background: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .publication-authors {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .publication-journal {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-doi a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .publication-doi a:hover {
+            text-decoration: underline;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-category {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .skill-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .profile-info h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .lang-toggle {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 1rem auto;
+                display: block;
+                width: fit-content;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .section:nth-child(even) {
+            animation-delay: 0.1s;
+        }
+        
+        .section:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <button class="lang-toggle" onclick="toggleLanguage()">
+            <i class="fas fa-globe"></i>
+            <span id="lang-text">English</span>
+        </button>
+        
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-info">
+                    <h1 id="name">张铁夫</h1>
+                    <div class="title" id="title">理论物理 博士</div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+86 18817572737</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:zhangtiefu16@mails.ucas.edu.cn">zhangtiefu16@mails.ucas.edu.cn</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="address">北京市海淀区中关村南三街8号 中国科学院物理研究所</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <a href="https://zhangtiefuphys.github.io/" target="_blank" id="website">个人主页</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-orcid"></i>
+                            <a href="https://orcid.org/0009-0000-0706-1699" target="_blank">ORCID</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-researchgate"></i>
+                            <a href="https://www.researchgate.net/profile/Tie-Fu-Zhang" target="_blank">ResearchGate</a>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjNGE5MGUyIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzJhNTY5OSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSIxMDAiIGZpbGw9InVybCgjZ3JhZGllbnQpIi8+CiAgPHRleHQgeD0iMTAwIiB5PSIxMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LXNpemU9IjM2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtd2VpZ2h0PSJib2xkIj7lvKA8L3RleHQ+Cjwvc3ZnPgo=" alt="Profile Photo" class="profile-photo">
+                -->
+                <img src="Portrait-02.png" alt="Profile Photo" class="profile-photo">
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#research" id="nav-research">研究兴趣</a></li>
+                    <li class="nav-item"><a href="#education" id="nav-education">教育背景</a></li>
+                    <li class="nav-item"><a href="#experience" id="nav-experience">研究经历</a></li>
+                    <li class="nav-item"><a href="#publications" id="nav-publications">发表论文</a></li>
+                    <li class="nav-item"><a href="#skills" id="nav-skills">专业技能</a></li>
+                    <li class="nav-item"><a href="#awards" id="nav-awards">奖励荣誉</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main">
+        <div class="container">
+            <!-- Research Interests -->
+            <section id="research" class="section">
+                <div class="section-header">
+                    <i class="fas fa-atom"></i>
+                    <span id="research-title">研究兴趣</span>
+                </div>
+                <div class="section-content">
+                    <div class="research-interests">
+                        <div class="research-item">
+                            <h3 id="research-1-title">量子多体系统</h3>
+                            <p id="research-1-desc">研究Bose-Einstein凝聚体系统的动力学行为，包含其在微重力环境下的演化特性。</p>
+                        </div>
+                        <div class="research-item">
+                            <h3 id="research-2-title">Non-Hermitian物理学</h3>
+                            <p id="research-2-desc">研究Non-Hermitian重力势对量子系统的影响，揭示波函数相位的空间周期性变化机制。</p>
+                        </div>
+                        <div class="research-item">
+                            <h3 id="research-3-title">冷原子物理</h3>
+                            <p id="research-3-desc">探索超冷原子系统中的非线性物质波干涉现象和量子泡动力学。</p>
+                        </div>
+                        <div class="research-item">
+                            <h3 id="research-4-title">数值计算方法</h3>
+                            <p id="research-4-desc">开发高精度数值求解Gross-Pitaevskii方程的算法，应用于复杂量子系统模拟。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section id="education" class="section">
+                <div class="section-header">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span id="education-title">教育背景</span>
+                </div>
+                <div class="section-content">
+                    <div class="education-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title" id="edu-1-school">中国科学院物理研究所</div>
+                                <div class="item-subtitle" id="edu-1-degree">理论物理 理学博士学位</div>
+                            </div>
+                            <div class="item-date">2016年9月 - 2024年6月</div>
+                        </div>
+                        <ul>
+                            <li id="edu-1-thesis">博士论文：《微重力玻色-爱因斯坦凝聚动力学》</li>
+                            <li id="edu-1-advisor">导师：刘伍明，研究员</li>
+                            <li id="edu-1-field">研究方向：玻色-爱因斯坦凝聚体、超冷原子物理、非线性物质波干涉、动力学演化、Gross-Pitaevskii 方程、微重力环境、量子泡、非厄米系统</li>
+                        </ul>
+                    </div>
+                    <div class="education-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title" id="edu-2-school">上海理工大学</div>
+                                <div class="item-subtitle" id="edu-2-degree">电气工程及其自动化 工学学士学位</div>
+                            </div>
+                            <div class="item-date">2011年9月 - 2015年6月</div>
+                        </div>
+                        <ul>
+                            <li id="edu-2-advisor">导师：谢明</li>
+                            <li id="edu-2-note">跨学科背景：从工程到物理学的转变为研究带来了独特视角和定量分析能力</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research Experience -->
+            <section id="experience" class="section">
+                <div class="section-header">
+                    <i class="fas fa-flask"></i>
+                    <span id="experience-title">研究经历</span>
+                </div>
+                <div class="section-content">
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title" id="exp-1-position">科研助理</div>
+                                <div class="item-subtitle" id="exp-1-institution">中国科学院物理研究所</div>
+                            </div>
+                            <div class="item-date">2016年9月 - 2024年6月</div>
+                        </div>
+                        <ul id="exp-1-details">
+                            <li>运用高精度数值计算方法解决Gross-Pitaevskii方程，系统研究了非厄米引力势对Bose-Einstein凝聚体(BEC)的影响，发现Non-Hermtian引力势的虚部会显著改变BEC波函数相位的空间周期性，并导致波函数峰值产生空间位移，为理解Non-Hermtian物理学与量子多体系统的相互作用提供了新视角。</li>
+                            <li>创新性地设计了利用电子束技术模拟Non-Hermtian重力的实验方案，通过调节电子束的电流密度、束腰宽度和中心位置等参数，实现了对电子束与BEC系统之间相互作用强度和位置的精确控制，使用Gauss光束模型精确描述电子束分布，为Non-Hermtian物理实验提供了可实现的技术路径。</li>
+                            <li>构建了描述BEC波函数动量与Non-Hermtian重力势参数复杂关系的理论方程，通过深入分析在特定条件下的解析解，成功解释了波函数相位分布和峰值位移的物理机制，建立了连接实验观测与理论预测的数学框架，为后续实验设计提供了理论指导。</li>
+                            <li>深入研究微重力环境下气泡形状BEC的动态演化特性，通过二维截面分析法简化了复杂的三维问题，系统考察了原子间相互作用强度和初始动量对BEC密度分布和演化速率的影响，揭示了微重力条件下量子多体系统的新行为模式。</li>
+                            <li>在特定初始动量条件下首次观察到泡状BEC壁厚度的反直觉减薄现象，这一发现挑战了传统理论预期，通过对波函数在相空间的分析，提出了可能的物理解释机制，并设计了可在微重力环境下验证该现象的实验方案。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Publications -->
+            <section id="publications" class="section">
+                <div class="section-header">
+                    <i class="fas fa-file-alt"></i>
+                    <span id="publications-title">发表论文</span>
+                </div>
+                <div class="section-content">
+                    <div class="publications">
+                        <div class="publication-item">
+                            <div class="publication-title">Non-Hermitian gravitational effects on Bose-Einstein condensate</div>
+                            <div class="publication-authors"><strong>Tie-Fu Zhang</strong>, Chengxi Li, Yitong Pei, Kai Liu, Wu-Ming Liu</div>
+                            <div class="publication-journal">Physica D: Nonlinear Phenomena, 472, 134456 (2025)</div>
+                            <div class="publication-doi">DOI: <a href="https://doi.org/10.1016/j.physd.2024.134456" target="_blank">10.1016/j.physd.2024.134456</a></div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="publication-title">Dynamics of bubble-shaped Bose-Einstein condensates on two-dimensional cross-section in micro-gravity environment</div>
+                            <div class="publication-authors"><strong>Tie-Fu Zhang</strong>, Cheng-Xi Li, Ming Liu</div>
+                            <div class="publication-journal">Chinese Physics B, 32(9), 090501 (2023)</div>
+                            <div class="publication-doi">DOI: <a href="https://doi.org/10.1088/1674-1056/acd922" target="_blank">10.1088/1674-1056/acd922</a></div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="publication-title">Supersolid phase of cold atoms</div>
+                            <div class="publication-authors"><strong>Tie-Fu Zhang</strong>, Wei Han, Ren-Yuan Liao, Jin-Wu Ye, Wu-Ming Liu</div>
+                            <div class="publication-journal">The European Physical Journal D, 74, 138 (2020)</div>
+                            <div class="publication-doi">DOI: <a href="https://doi.org/10.1140/epjd/e2020-10127-3" target="_blank">10.1140/epjd/e2020-10127-3</a></div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="publication-title">A High-Sensitivity Cesium Atomic Magnetometer Based on A Cesium Spectral Lamp</div>
+                            <div class="publication-authors">Yuan-Tian Lu, Lei-Song Liu, Yong-Qi Shi, Tian Zhao, Wan-Hua Zhu, <strong>Tie-Fu Zhang</strong>, Wu-Ming Liu, Xiao-Juan Zhang</div>
+                            <div class="publication-journal">Applied Sciences, 13(14), 8225 (2023)</div>
+                            <div class="publication-doi">DOI: <a href="https://doi.org/10.3390/app13148225" target="_blank">10.3390/app13148225</a></div>
+                        </div>
+                        
+                        <div class="publication-item">
+                            <div class="publication-title">Interference of Two-Dimensional Bose-Einstein Condensates in Micro-Gravity</div>
+                            <div class="publication-authors"><strong>Tie-Fu Zhang</strong>, Hao Zhu, Wen-Kai Bai, Kai Liu, Yi-Hui Xing, Wu-Ming Liu</div>
+                            <div class="publication-journal">arXiv: 2401.00920</div>
+                            <div class="publication-doi">DOI: <a href="https://doi.org/10.48550/arXiv.2401.00920" target="_blank">10.48550/arXiv.2401.00920</a></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section id="skills" class="section">
+                <div class="section-header">
+                    <i class="fas fa-cogs"></i>
+                    <span id="skills-title">专业技能</span>
+                </div>
+                <div class="section-content">
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <div class="skill-title">
+                                <i class="fas fa-atom"></i>
+                                <span id="skill-theory">理论方法</span>
+                            </div>
+                            <p id="skill-theory-content">量子场论, 规范场论, 凝聚态理论, 统计物理, 非平衡统计物理, 量子多体理论, 冷原子物理, 平均场理论, Bogoliubov近似, Gross-Pitaevskii方程</p>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <div class="skill-title">
+                                <i class="fas fa-code"></i>
+                                <span id="skill-programming">编程语言</span>
+                            </div>
+                            <p id="skill-programming-content">Python, C++, Mathematica, MATLAB, LaTeX</p>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <div class="skill-title">
+                                <i class="fas fa-desktop"></i>
+                                <span id="skill-software">专业软件</span>
+                            </div>
+                            <p id="skill-software-content">Wolfram Mathematica, MATLAB, NumPy/SciPy</p>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <div class="skill-title">
+                                <i class="fas fa-calculator"></i>
+                                <span id="skill-numerical">数值方法</span>
+                            </div>
+                            <p id="skill-numerical-content">有限元分析, 时间分裂谱方法, 有限差分方法, 伪谱方法, Crank-Nicolson方法</p>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <div class="skill-title">
+                                <i class="fas fa-language"></i>
+                                <span id="skill-language">语言能力</span>
+                            </div>
+                            <p id="skill-language-content">中文(母语，普通话二级甲等), 英语(流利, CET六级)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Awards -->
+            <section id="awards" class="section">
+                <div class="section-header">
+                    <i class="fas fa-trophy"></i>
+                    <span id="awards-title">学术奖励与荣誉</span>
+                </div>
+                <div class="section-content">
+                    <div class="awards-grid">
+                        <div class="award-item">
+                            <div class="award-year">2020年</div>
+                            <div class="award-name" id="award-1">三好学生, 中国科学院大学</div>
+                        </div>
+                        <div class="award-item">
+                            <div class="award-year">2014年</div>
+                            <div class="award-name" id="award-2">第六届上海市大学生数学竞赛三等奖 (非数学专业), 上海市数学会</div>
+                        </div>
+                        <div class="award-item">
+                            <div class="award-year">2014年</div>
+                            <div class="award-name" id="award-3">第一届上海市大学生力学竞赛二等奖, 上海市力学学会</div>
+                        </div>
+                        <div class="award-item">
+                            <div class="award-year">2010年</div>
+                            <div class="award-name" id="award-4">第二十七届全国中学生物理竞赛二等奖, 中国物理学会</div>
+                        </div>
+                        <div class="award-item">
+                            <div class="award-year">2008年</div>
+                            <div class="award-name" id="award-5">中考英语单科全市第三名</div>
+                        </div>
+                        <div class="award-item">
+                            <div class="award-year">2008年</div>
+                            <div class="award-name" id="award-6">全国初中数学竞赛一等奖, 中国教育学会中学数学专业委员会</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        let currentLang = 'zh';
+        
+        const translations = {
+            zh: {
+                'lang-text': 'English',
+                'name': '张铁夫',
+                'title': '理论物理 博士',
+                'address': '北京市海淀区中关村南三街8号 中国科学院物理研究所',
+                'website': '个人主页',
+                'nav-research': '研究兴趣',
+                'nav-education': '教育背景',
+                'nav-experience': '研究经历',
+                'nav-publications': '发表论文',
+                'nav-skills': '专业技能',
+                'nav-awards': '奖励荣誉',
+                'research-title': '研究兴趣',
+                'research-1-title': '量子多体系统',
+                'research-1-desc': '研究Bose-Einstein凝聚体系统的动力学行为，包含其在微重力环境下的演化特性。',
+                'research-2-title': 'Non-Hermitian物理学',
+                'research-2-desc': '研究Non-Hermitian重力势对量子系统的影响，揭示波函数相位的空间周期性变化机制。',
+                'research-3-title': '冷原子物理',
+                'research-3-desc': '探索超冷原子系统中的非线性物质波干涉现象和量子泡动力学。',
+                'research-4-title': '数值计算方法',
+                'research-4-desc': '开发高精度数值求解Gross-Pitaevskii方程的算法，应用于复杂量子系统模拟。',
+                'education-title': '教育背景',
+                'edu-1-school': '中国科学院物理研究所',
+                'edu-1-degree': '理论物理 理学博士学位',
+                'edu-1-thesis': '博士论文：《微重力玻色-爱因斯坦凝聚动力学》',
+                'edu-1-advisor': '导师：刘伍明，研究员',
+                'edu-1-field': '研究方向：玻色-爱因斯坦凝聚体、超冷原子物理、非线性物质波干涉、动力学演化、Gross-Pitaevskii 方程、微重力环境、量子泡、非厄米系统',
+                'edu-2-school': '上海理工大学',
+                'edu-2-degree': '电气工程及其自动化 工学学士学位',
+                'edu-2-advisor': '导师：谢明',
+                'edu-2-note': '跨学科背景：从工程到物理学的转变为研究带来了独特视角和定量分析能力',
+                'experience-title': '研究经历',
+                'exp-1-position': '科研助理',
+                'exp-1-institution': '中国科学院物理研究所',
+                'publications-title': '发表论文',
+                'skills-title': '专业技能',
+                'skill-theory': '理论方法',
+                'skill-theory-content': '量子场论, 规范场论, 凝聚态理论, 统计物理, 非平衡统计物理, 量子多体理论, 冷原子物理, 平均场理论, Bogoliubov近似, Gross-Pitaevskii方程',
+                'skill-programming': '编程语言',
+                'skill-programming-content': 'Python, C++, Mathematica, MATLAB, LaTeX',
+                'skill-software': '专业软件',
+                'skill-software-content': 'Wolfram Mathematica, MATLAB, NumPy/SciPy',
+                'skill-numerical': '数值方法',
+                'skill-numerical-content': '有限元分析, 时间分裂谱方法, 有限差分方法, 伪谱方法, Crank-Nicolson方法',
+                'skill-language': '语言能力',
+                'skill-language-content': '中文(母语，普通话二级甲等), 英语(流利, CET六级)',
+                'awards-title': '学术奖励与荣誉',
+                'award-1': '三好学生, 中国科学院大学',
+                'award-2': '第六届上海市大学生数学竞赛三等奖 (非数学专业), 上海市数学会',
+                'award-3': '第一届上海市大学生力学竞赛二等奖, 上海市力学学会',
+                'award-4': '第二十七届全国中学生物理竞赛二等奖, 中国物理学会',
+                'award-5': '中考英语单科全市第三名',
+                'award-6': '全国初中数学竞赛一等奖, 中国教育学会中学数学专业委员会'
+            },
+            en: {
+                'lang-text': '中文',
+                'name': 'Tie-Fu Zhang',
+                'title': 'Ph.D. in Theoretical Physics',
+                'address': 'Institute of Physics, Chinese Academy of Sciences, No.8 Nansanjie, Zhongguancun, Haidian District, Beijing',
+                'website': 'Personal Homepage',
+                'nav-research': 'Research Interests',
+                'nav-education': 'Education',
+                'nav-experience': 'Research Experience',
+                'nav-publications': 'Publications',
+                'nav-skills': 'Skills',
+                'nav-awards': 'Awards & Honors',
+                'research-title': 'Research Interests',
+                'research-1-title': 'Quantum Many-Body Systems',
+                'research-1-desc': 'Study the dynamical behavior of Bose-Einstein condensate systems, including their evolution characteristics in microgravity environments.',
+                'research-2-title': 'Non-Hermitian Physics',
+                'research-2-desc': 'Investigate the effects of Non-Hermitian gravitational potentials on quantum systems, revealing the spatial periodic variation mechanism of wave function phases.',
+                'research-3-title': 'Cold Atom Physics',
+                'research-3-desc': 'Explore nonlinear matter wave interference phenomena and quantum bubble dynamics in ultracold atomic systems.',
+                'research-4-title': 'Numerical Computational Methods',
+                'research-4-desc': 'Develop high-precision numerical algorithms for solving the Gross-Pitaevskii equation, applied to complex quantum system simulations.',
+                'education-title': 'Education',
+                'edu-1-school': 'Institute of Physics, Chinese Academy of Sciences',
+                'edu-1-degree': 'Ph.D. in Theoretical Physics',
+                'edu-1-thesis': 'Dissertation: "Dynamics of Bose-Einstein Condensate in Microgravity"',
+                'edu-1-advisor': 'Advisor: Prof. Wu-Ming Liu',
+                'edu-1-field': 'Research Fields: Bose-Einstein Condensates, Ultracold Atomic Physics, Nonlinear Matter Wave Interference, Dynamical Evolution, Gross-Pitaevskii Equation, Microgravity Environment, Quantum Bubbles, Non-Hermitian Systems',
+                'edu-2-school': 'University of Shanghai for Science and Technology',
+                'edu-2-degree': 'B.Eng. in Electrical Engineering and Automation',
+                'edu-2-advisor': 'Advisor: Prof. Ming Xie',
+                'edu-2-note': 'Interdisciplinary Background: The transition from engineering to physics brings unique perspectives and quantitative analysis capabilities to research',
+                'experience-title': 'Research Experience',
+                'exp-1-position': 'Research Assistant',
+                'exp-1-institution': 'Institute of Physics, Chinese Academy of Sciences',
+                'publications-title': 'Publications',
+                'skills-title': 'Professional Skills',
+                'skill-theory': 'Theoretical Methods',
+                'skill-theory-content': 'Quantum Field Theory, Gauge Field Theory, Condensed Matter Theory, Statistical Physics, Non-equilibrium Statistical Physics, Quantum Many-Body Theory, Cold Atom Physics, Mean-Field Theory, Bogoliubov Approximation, Gross-Pitaevskii Equation',
+                'skill-programming': 'Programming Languages',
+                'skill-programming-content': 'Python, C++, Mathematica, MATLAB, LaTeX',
+                'skill-software': 'Professional Software',
+                'skill-software-content': 'Wolfram Mathematica, MATLAB, NumPy/SciPy',
+                'skill-numerical': 'Numerical Methods',
+                'skill-numerical-content': 'Finite Element Analysis, Time-Splitting Spectral Method, Finite Difference Method, Pseudospectral Method, Crank-Nicolson Method',
+                'skill-language': 'Languages',
+                'skill-language-content': 'Chinese (Native, Mandarin Level 2A), English (Fluent, CET-6)',
+                'awards-title': 'Awards & Honors',
+                'award-1': 'Merit Student, University of Chinese Academy of Sciences',
+                'award-2': 'Third Prize, 6th Shanghai University Student Mathematics Competition (Non-Mathematics Major), Shanghai Mathematical Society',
+                'award-3': 'Second Prize, 1st Shanghai University Student Mechanics Competition, Shanghai Society of Mechanics',
+                'award-4': 'Second Prize, 27th National Physics Olympiad for Middle School Students, Chinese Physical Society',
+                'award-5': 'Third Place in English Subject, City-wide High School Entrance Examination',
+                'award-6': 'First Prize, National Mathematics Competition for Middle School Students, China Education Society Mathematics Teaching Professional Committee'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
+            
+            // Update all translatable elements
+            Object.keys(translations[currentLang]).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+            
+            // Update experience details
+            const expDetails = document.getElementById('exp-1-details');
+            if (currentLang === 'zh') {
+                expDetails.innerHTML = `
+                    <li>运用高精度数值计算方法解决Gross-Pitaevskii方程，系统研究了非厄米引力势对Bose-Einstein凝聚体(BEC)的影响，发现Non-Hermtian引力势的虚部会显著改变BEC波函数相位的空间周期性，并导致波函数峰值产生空间位移，为理解Non-Hermtian物理学与量子多体系统的相互作用提供了新视角。</li>
+                    <li>创新性地设计了利用电子束技术模拟Non-Hermtian重力的实验方案，通过调节电子束的电流密度、束腰宽度和中心位置等参数，实现了对电子束与BEC系统之间相互作用强度和位置的精确控制，使用Gauss光束模型精确描述电子束分布，为Non-Hermtian物理实验提供了可实现的技术路径。</li>
+                    <li>构建了描述BEC波函数动量与Non-Hermtian重力势参数复杂关系的理论方程，通过深入分析在特定条件下的解析解，成功解释了波函数相位分布和峰值位移的物理机制，建立了连接实验观测与理论预测的数学框架，为后续实验设计提供了理论指导。</li>
+                    <li>深入研究微重力环境下气泡形状BEC的动态演化特性，通过二维截面分析法简化了复杂的三维问题，系统考察了原子间相互作用强度和初始动量对BEC密度分布和演化速率的影响，揭示了微重力条件下量子多体系统的新行为模式。</li>
+                    <li>在特定初始动量条件下首次观察到泡状BEC壁厚度的反直觉减薄现象，这一发现挑战了传统理论预期，通过对波函数在相空间的分析，提出了可能的物理解释机制，并设计了可在微重力环境下验证该现象的实验方案。</li>
+                `;
+            } else {
+                expDetails.innerHTML = `
+                    <li>Employed high-precision numerical computational methods to solve the Gross-Pitaevskii equation, systematically studied the effects of non-Hermitian gravitational potentials on Bose-Einstein condensates (BEC), discovered that the imaginary part of Non-Hermitian gravitational potentials significantly alters the spatial periodicity of BEC wave function phases and causes spatial displacement of wave function peaks, providing new insights into the interaction between Non-Hermitian physics and quantum many-body systems.</li>
+                    <li>Innovatively designed an experimental scheme using electron beam technology to simulate Non-Hermitian gravity, achieved precise control of interaction strength and position between electron beams and BEC systems by adjusting parameters such as electron beam current density, beam waist width, and center position, used Gaussian beam model to accurately describe electron beam distribution, providing a feasible technical pathway for Non-Hermitian physics experiments.</li>
+                    <li>Constructed theoretical equations describing the complex relationship between BEC wave function momentum and Non-Hermitian gravitational potential parameters, successfully explained the physical mechanism of wave function phase distribution and peak displacement through in-depth analysis of analytical solutions under specific conditions, established a mathematical framework connecting experimental observations with theoretical predictions, providing theoretical guidance for subsequent experimental design.</li>
+                    <li>Conducted in-depth research on the dynamic evolution characteristics of bubble-shaped BEC in microgravity environments, simplified complex three-dimensional problems through two-dimensional cross-section analysis method, systematically investigated the effects of interatomic interaction strength and initial momentum on BEC density distribution and evolution rate, revealing new behavioral patterns of quantum many-body systems under microgravity conditions.</li>
+                    <li>First observed the counter-intuitive thinning phenomenon of bubble-shaped BEC wall thickness under specific initial momentum conditions, this discovery challenged traditional theoretical expectations, proposed possible physical explanation mechanisms through analysis of wave functions in phase space, and designed experimental schemes that can verify this phenomenon in microgravity environments.</li>
+                `;
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for navigation highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-item a');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, {
+            rootMargin: '-50% 0px -50% 0px'
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+    <style>
+        .awards-grid {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .award-item {
+            background: var(--bg-light);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .award-item:hover {
+            transform: translateX(10px);
+            background: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .award-year {
+            font-weight: 600;
+            color: var(--primary-color);
+            min-width: 60px;
+            font-size: 0.9rem;
+        }
+        
+        .award-name {
+            color: var(--text-dark);
+        }
+        
+        .nav-item a.active {
+            color: var(--primary-color);
+            background: var(--bg-light);
+        }
+        
+        @media (max-width: 768px) {
+            .award-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .award-year {
+                min-width: auto;
+            }
+        }
+    </style>
+</body>
+</html>
